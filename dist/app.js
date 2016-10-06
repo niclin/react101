@@ -1,4 +1,10 @@
 "use strict";
 
-ReactDOM.render(React.createElement("h1", null, "Hello, World"), document.getElementById('content'));
+var Title = React.createClass({ displayName: "Title",
+  render: function render() {
+    return React.createElement("div", null, React.createElement("h1", null, "Title"), React.createElement("h2", null, "Author"));
+  }
+});
+
+ReactDOM.render(React.createElement(Title, null), document.getElementById('content'));
 //# sourceMappingURL=app.js.map

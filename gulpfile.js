@@ -57,7 +57,7 @@ gulp.task('compile', function(done) {
 
 // Watch Files For Changes
 gulp.task('watch', function () {
-    gulp.watch(['src/*'], ['compile']);
+    gulp.watch(['src/**/*.jsx'], ['build', 'browserify']);
 });
 
 // Default Task

@@ -15,8 +15,12 @@ export class Title extends Component {
       });
   }
 
+  componentWillUnmount() {
+      clearInterval(this.interval);
+  }
+
   componentDidMount() {
-    setInterval(this.tick.bind(this), 1000);
+    this.interval = setInterval(this.tick.bind(this), 1000);
   }
 
   render() {

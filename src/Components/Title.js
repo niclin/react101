@@ -41,9 +41,14 @@ var Title = exports.Title = function (_Component) {
       });
     }
   }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.interval);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      setInterval(this.tick.bind(this), 1000);
+      this.interval = setInterval(this.tick.bind(this), 1000);
     }
   }, {
     key: "render",

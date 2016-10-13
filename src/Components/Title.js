@@ -22,16 +22,33 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Title = exports.Title = function (_Component) {
   _inherits(Title, _Component);
 
-  function Title() {
+  function Title(props, context) {
     _classCallCheck(this, Title);
 
-    return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, context));
+
+    _this.state = {
+      data: 0
+    };
+    return _this;
   }
 
   _createClass(Title, [{
+    key: "tick",
+    value: function tick() {
+      this.setState({
+        data: this.state.data + 1
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      setInterval(this.tick.bind(this), 1000);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement("div", null, _react2.default.createElement("h1", null, this.props.text), _react2.default.createElement("h2", null, "Author"));
+      return _react2.default.createElement("div", null, _react2.default.createElement("h1", null, this.props.text), _react2.default.createElement("h2", null, this.state.data));
     }
   }]);
 

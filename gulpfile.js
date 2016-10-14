@@ -49,15 +49,17 @@ gulp.task('browserify', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('compile', function(done) {
-    runSequence('build', 'browserify', 'todo', function() {
-        done();
-    });
+// Browserify
+gulp.task('todo', function() {
+  return gulp.src('src/todo.js')
+    .pipe(browserify())
+    .pipe(gulp.dest('dist'));
 });
 
 // Watch Files For Changes
 gulp.task('watch', function () {
-    gulp.watch(['src/**/*.jsx'], ['build', 'browserify']);
+    gulp.watch(['src/**/*.jsx'], ['build']);
+    gulp.watch(['src/**/*.js'], ['todo']);
 });
 
 // Default Task
